@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) "2022" Red Hat and others
+  ~
+  ~ This program and the accompanying materials are made available under the
+  ~ Apache Software License 2.0 which is available at:
+  ~ https://www.apache.org/licenses/LICENSE-2.0.
+  ~
+  ~ SPDX-License-Identifier: Apache-2.0
+  ~
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.jboss.jakartaee</groupId>
+  <artifactId>fixup-jboss-repo</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0</version>
+  <name>Jakarta Core Profile TCK Dependencies</name>
+
+  <properties>
+    <jboss.test.audit.version>1.1.3.Final</jboss.test.audit.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <executions>
+          <execution>
+            <id>install-test-audit-api</id>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <groupId>org.jboss.test-audit</groupId>
+              <artifactId>jboss-test-audit-api</artifactId>
+              <version>${jboss.test.audit.version}</version>
+              <packaging>jar</packaging>
+              <file>dependencies/jboss-test-audit-api.jar</file>
+              <generatePom>true</generatePom>
+            </configuration>
+          </execution>
+          <execution>
+            <id>install-test-audit-impl</id>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <groupId>org.jboss.test-audit</groupId>
+              <artifactId>jboss-test-audit-impl</artifactId>
+              <version>${jboss.test.audit.version}</version>
+              <packaging>jar</packaging>
+              <file>dependencies/jboss-test-audit-impl.jar</file>
+              <generatePom>true</generatePom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

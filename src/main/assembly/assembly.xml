@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) "2022" Red Hat and others
+  ~
+  ~ This program and the accompanying materials are made available under the
+  ~ Apache Software License 2.0 which is available at:
+  ~ https://www.apache.org/licenses/LICENSE-2.0.
+  ~
+  ~ SPDX-License-Identifier: Apache-2.0
+  ~
+  -->
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+  <id>repo</id>
+  <baseDirectory>jboss-repo</baseDirectory>
+  <formats>
+    <format>zip</format>
+  </formats>
+
+  <files>
+    <file>
+      <source>src/main/resources/install-pom.xml</source>
+      <destName>pom.xml</destName>
+    </file>
+  </files>
+
+  <fileSets>
+    <fileSet>
+      <directory>target/dependency</directory>
+      <outputDirectory>dependencies</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>
