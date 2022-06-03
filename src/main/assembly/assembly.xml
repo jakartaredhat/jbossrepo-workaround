@@ -21,6 +21,7 @@
     <file>
       <source>src/main/resources/install-pom.xml</source>
       <destName>pom.xml</destName>
+      <filtered>true</filtered>
     </file>
   </files>
 
